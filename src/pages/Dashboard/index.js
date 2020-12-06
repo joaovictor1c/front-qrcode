@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from 'react';
 import api from '../../services/api';
-import {Container} from './styles';
+import {Container, ContainerButton} from './styles';
 import QRReader from 'qrcode-reader';
 
 function Dashboard() {
@@ -18,9 +18,6 @@ function Dashboard() {
         const qr = new QRReader();
 
         const data = qr.decode(null ,res.data[0].qrcode)
-        console.log(data)
-        console.log(res.data[0].qrcode)
-
       });
   },[]);
 
@@ -38,19 +35,30 @@ function Dashboard() {
     }
      
   }
+  
+  async function HandleQrcode (){
+    const data = await api.post(`http://localhost:3332/users/${id}/qrcode`);
+    setQrcode([...qrcode, data.data]);
+  }
 
   return (
+  <>
+    <ContainerButton>
+      <button
+              onClick={() => { HandleQrcode() }}
+              type="button"
+            >
+              Gerar QrCode
+      </button>
+    </ContainerButton>
+      
     <Container>
+   
       <ul>
       {qrcode.map(product => (
         <li key={product.id}>
           <img src={product.qrcode}></img>
-          <button
-            onClick={() => {}}
-            type="button"
-          >
-            Compartilhar
-          </button>
+         
           <button
             onClick={() => {HandleDelete(product.id) }}
             type="button"
@@ -61,6 +69,7 @@ function Dashboard() {
       ))}
       </ul>
     </Container>
+    </>
   );
 }
 

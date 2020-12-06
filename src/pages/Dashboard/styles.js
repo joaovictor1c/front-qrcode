@@ -8,6 +8,7 @@ export const Container = styled.div`
   width: 80%;
   border-radius: 10px;
 
+
   ul {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -49,6 +50,7 @@ export const Container = styled.div`
     font-size: 14px;
     padding: 6px 12px;
     margin: 0 auto;
+    margin-top: 15px;
     text-decoration: none;
     white-space: nowrap;
     vertical-align: middle;
@@ -59,6 +61,38 @@ export const Container = styled.div`
     opacity: 0.8;
   }
   ul li button:active {
+    background-image: none;
+    outline: 0;
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+}
+`
+export const ContainerButton = styled.div`
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 4px;
+    background: green;
+    font-size: 14px;
+    padding: 6px 12px;
+    margin: 0 auto;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+  button:hover {
+    opacity: 0.8;
+  }
+  button:active {
     background-image: none;
     outline: 0;
     -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);

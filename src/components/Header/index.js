@@ -1,12 +1,11 @@
 import React from 'react';
-
 import { Link } from 'react-router-dom';
-import {TiShoppingCart} from "react-icons/ti";
 import {BsList} from 'react-icons/bs';
 import { Container, Content, Profile } from './styles';
+import api from '../../services/api'
 
 function Header() {
-
+ 
   return (
     <Container>
       <Content>
@@ -15,7 +14,7 @@ function Header() {
           <Link to="/dashboard">  </Link>
           <BsList size={30} />
         </nav>
-
+        
         <aside>
           <Profile>
             <div>
