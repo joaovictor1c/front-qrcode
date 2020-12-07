@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react';
 import api from '../../services/api';
 import {Container, ContainerButton} from './styles';
-import QRReader from 'qrcode-reader';
+
 
 function Dashboard() {
 
@@ -15,9 +15,7 @@ function Dashboard() {
       })
       .then(res => {
         setQrcode(res.data);
-        const qr = new QRReader();
-
-        const data = qr.decode(null ,res.data[0].qrcode)
+        
       });
   },[]);
 

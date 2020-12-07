@@ -35,9 +35,11 @@ function SignUp() {
       password,
       c_password,
     };
+    console.log(data)
     try{
       const response = await api.post("users", data);
       console.log(response)
+      history.push('/')
     }catch(err){
       console.log(err);
     }
@@ -46,7 +48,7 @@ function SignUp() {
 
   return (
     <>
-      <Form schema={schema} onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} schema={schema} >
         <Input 
           name="name"
           placeholder="Nome completo" 
@@ -74,7 +76,7 @@ function SignUp() {
           value={c_password}
           onChange={e => setc_password(e.target.value)}
         />
-        <button type="submit" onClick={()=> history.push('/')}>Criar conta</button>
+        <button type="submit">Criar conta</button>
         <Link to="/">Já tenho login</Link>
       </Form>
     </>
